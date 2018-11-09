@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lolin/next_screen.dart';
 
 void main() => runApp(new MyApp());
 
@@ -39,9 +40,22 @@ class HomeScreenState extends State<HomeScreen> {
         title: Text("My Life is Lolin"),
       ),
       body: Center(
-        child: Text(
-          count.toString(),
-          style: Theme.of(context).textTheme.display1,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              count.toString(),
+              style: Theme.of(context).textTheme.display1,
+            ),
+            RaisedButton(
+              child: Text("Go to next"),
+              color: Colors.amber,
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => NextScreen()));
+              },
+            )
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
